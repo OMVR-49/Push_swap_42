@@ -6,12 +6,12 @@
 #    By: ojebbari <ojebbari@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/05 16:52:14 by ojebbari          #+#    #+#              #
-#    Updated: 2023/06/13 00:33:48 by ojebbari         ###   ########.fr        #
+#    Updated: 2023/06/14 02:55:15 by ojebbari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = push_swap.c 
-CFLAGS = -Wall -Wextra -Werror 
+SRC = push_swap.c indexing.c instruction.c algo_sort_print.c sort_min.c
+# CFLAGS = -Wall -Wextra -Werror
 CC = cc
 NAME = push_swap
 BONUS_NAME = checker
