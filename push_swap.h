@@ -6,7 +6,7 @@
 /*   By: ojebbari <ojebbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 01:38:48 by ojebbari          #+#    #+#             */
-/*   Updated: 2023/06/14 02:58:04 by ojebbari         ###   ########.fr       */
+/*   Updated: 2023/06/14 06:16:20 by ojebbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ void	sort_two(t_data *data);
 void	sort_three(t_data *data);
 void	sort_min(t_data *data);
 void	print_stack(t_data *data);
-void	algo_from_a_to_b(t_data *data);
+void	algo_from_a_to_b(t_data *data, int z);
 void	algo_from_b_to_a(t_data *data);
+
+int min(t_data *data, int value);
+void	sort_three(t_data *data);
 
 #endif 

@@ -6,7 +6,7 @@
 /*   By: ojebbari <ojebbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2023/06/14 04:09:43 by ojebbari         ###   ########.fr       */
+/*   Updated: 2023/06/14 06:17:02 by ojebbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,25 @@ void	sorting(t_data *data)
 		sort_three(data);
 	else if (size == 4 || size == 5)
 		sort_min(data);
+	else if (size <= 100)
+	{
+		algo_from_a_to_b(data, 4);
+		algo_from_b_to_a(data);
+	}
 	else
 	{
-		algo_from_a_to_b(data);
+		algo_from_a_to_b(data, 10);
 		algo_from_b_to_a(data);
 	}
 }
 
-void	algo_from_a_to_b(t_data *data)
+void	algo_from_a_to_b(t_data *data, int z)
 {
 	int	j;
 	int	i;
 
 	i = 0;
-	j = ft_lstsize(data->a->head) / 10;
+	j = ft_lstsize(data->a->head) / z;
 	while (data->a->head)
 	{
 		if (data->a->head->index <= i)
@@ -94,7 +99,7 @@ void	algo_from_b_to_a(t_data *data)
 	int		j;
 
 	// initialize_index(data->b);
-	j = ft_lstsize(data->b->head);
+	j = ft_lstsize(data->b->head) / 2;
 	while (data->b->head)
 	{
 		max = ft_max(data->b);
