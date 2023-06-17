@@ -6,12 +6,24 @@
 /*   By: ojebbari <ojebbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 01:38:34 by ojebbari          #+#    #+#             */
-/*   Updated: 2023/06/14 03:54:46 by ojebbari         ###   ########.fr       */
+/*   Updated: 2023/06/17 23:26:24 by ojebbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <ctype.h>
+
+void	free_nodes(t_data	*data)
+{
+	while (data->a->head)
+	{
+		// free(data->a->head->val);
+		free(data->a->head);
+		// free(data->a->head->index);
+		data->a->head = data->a->head->next;
+	}
+	
+}
 
 static int	initialize(t_data *data)
 {
@@ -83,7 +95,20 @@ void	print_stack(t_data *data)
 		printf("\n");
 	}
 }
-
+void	free_stuf(char	**spl)
+{
+	int i;
+	i = 0;
+	while (spl[i])
+	{
+		free(spl[i]);
+		i++;
+	}
+	free(spl[i]);
+	free(spl);
+	spl[i] = NULL;
+	
+}
 static void	ft_parcing(char **argv, t_data *data)
 {
 	char	**spl;
@@ -97,36 +122,48 @@ static void	ft_parcing(char **argv, t_data *data)
 		j = 0;
 		spl = ft_split(argv[i], ' ');
 		if (spl == NULL || *spl == NULL)
-			exit(0xFF);
+			ft_error(1);
 		while (spl[j])
 		{
 			if (integers(spl[j]))
-				exit(96);
+				ft_error(1);
 			number = ft_atoi(spl[j]);
 			if (check_dup(number, data->a->head))
-				exit(69);
+				ft_error(1);
 			ft_lstadd_back(&data->a->head, ft_lstnew(number));
 			j++;
 		}
+		free_stuf(spl);
 		i++;
 	}
+}
+void	v(c)
+{
+	system("leaks push_swap");
 }
 
 int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	if (argc > 2)
+	if (argc > 1)
 	{
 		initialize(&data);
 		ft_parcing(argv, &data);
 		index_stack(data.a);
-		if (!it_is_sorted(data.a))
-			exit(1);
+		if (it_is_sorted(data.a))
+		{
+			free_nodes(&data);
+			free(data.a);
+			free(data.b);
+			return (0);
+		}
 		sorting(&data);
-		print_stack(&data);
-		
 	}
 	else
 		return (0);
+	free_nodes(&data);
+	free(data.a);
+	free(data.b);
+	atexit(v);
 }

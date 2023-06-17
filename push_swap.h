@@ -6,7 +6,7 @@
 /*   By: ojebbari <ojebbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 01:38:48 by ojebbari          #+#    #+#             */
-/*   Updated: 2023/06/14 06:16:20 by ojebbari         ###   ########.fr       */
+/*   Updated: 2023/06/17 08:12:16 by ojebbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <ctype.h>
 # include <unistd.h>
+#include <stdio.h>
 # include "./liibft/libft.h"
 
 typedef struct stack_s
@@ -42,12 +43,17 @@ int	it_is_sorted(t_stack *stack);
 void	sorting(t_data	*data);
 void	sort_two(t_data *data);
 void	sort_three(t_data *data);
-void	sort_min(t_data *data);
+void	sort_four(t_data *data);
+void	sort_five(t_data *data);
 void	print_stack(t_data *data);
 void	algo_from_a_to_b(t_data *data, int z);
 void	algo_from_b_to_a(t_data *data);
+t_list	*ft_min(t_stack *b);
+t_list	*ft_max(t_stack *b);
 
-int min(t_data *data, int value);
+int	min(t_data *data, int value);
 void	sort_three(t_data *data);
+
+void ft_error(int a);
 
 #endif 

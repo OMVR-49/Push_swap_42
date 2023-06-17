@@ -6,7 +6,7 @@
 /*   By: ojebbari <ojebbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2023/06/14 06:17:02 by ojebbari         ###   ########.fr       */
+/*   Updated: 2023/06/17 06:08:36 by ojebbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 void	sorting(t_data *data)
 {
-	int size;
+	int	size;
+
 	size = ft_lstsize(data->a->head);
-	if(size == 2)
+	if (size == 2)
 		sort_two(data);
 	else if (size == 3)
 		sort_three(data);
-	else if (size == 4 || size == 5)
-		sort_min(data);
+	else if (size == 4)
+		sort_four(data);
+	else if (size == 5)
+		sort_five(data);
 	else if (size <= 100)
 	{
 		algo_from_a_to_b(data, 4);
@@ -40,9 +43,9 @@ void	algo_from_a_to_b(t_data *data, int z)
 	int	i;
 
 	i = 0;
-	j = ft_lstsize(data->a->head) / z;
 	while (data->a->head)
 	{
+		j = ft_lstsize(data->a->head) / z;
 		if (data->a->head->index <= i)
 		{
 			p_li_bghit(data->a, data->b, 1);
@@ -55,12 +58,9 @@ void	algo_from_a_to_b(t_data *data, int z)
 			i++;
 		}
 		else
-		{
 			rotate(data->a, 1);
-		}
 	}
 }
-
 
 t_list	*ft_max(t_stack *b)
 {
@@ -71,19 +71,19 @@ t_list	*ft_max(t_stack *b)
 	max = tmp;
 	while (tmp)
 	{
-		if (max->index < tmp->index)
+		if (max->val < tmp->val)
 			max = tmp;
 		tmp = tmp->next;
 	}
 	return (max);
 }
 
-void	initialize_index(t_stack *stack_b)
+void	initialize_index(t_list *stack_b)
 {
 	int		i;
 	t_list	*tmp;
 
-	tmp = stack_b->head;
+	tmp = stack_b;
 	i = 0;
 	while (tmp)
 	{
@@ -96,21 +96,23 @@ void	initialize_index(t_stack *stack_b)
 void	algo_from_b_to_a(t_data *data)
 {
 	t_list	*max;
-	int		j;
+	int		size;
+	t_list	*tmp;
 
-	// initialize_index(data->b);
-	j = ft_lstsize(data->b->head) / 2;
-	while (data->b->head)
+	initialize_index(data->b->head);
+	size = ft_lstsize(data->b->head) - 1;
+	while (data->b->head && size >= 0)
 	{
 		max = ft_max(data->b);
-		while (max != data->b->head)
+		if (data->b->head == max)
 		{
-			if (data->b->head->index <= j)
-				rr_li_bghit(data->b, 2);
-			else
-				rotate(data->b, 2);
+			p_li_bghit(data->b, data->a, 2);
+			size--;
+			initialize_index(data->b->head);
 		}
-		p_li_bghit(data->b, data->a, 2);
-		j--;
+		else if (max->index >= size / 2)
+			rr_li_bghit(data->b, 2);
+		else
+			rotate(data->b, 2);
 	}
 }

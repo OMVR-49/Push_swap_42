@@ -6,7 +6,7 @@
 /*   By: ojebbari <ojebbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 03:21:56 by ojebbari          #+#    #+#             */
-/*   Updated: 2023/06/14 05:48:49 by ojebbari         ###   ########.fr       */
+/*   Updated: 2023/06/16 18:36:31 by ojebbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,20 @@ void	rotate(t_stack *stack, int a)
 		stack->head = stack->head->next;
 		tmp->next->next = NULL;
 		if(a == 1)
-			write(1,"ra\n", 4);
+			write(1,"ra\n", 3);
 		else if (a == 2)
-			write(1,"rb\n", 4);
+			write(1,"rb\n", 3);
 	}
 	else
 		return;
 }
+ void ft_error(int a)
+ {
+	if (a == 1)
+	{
+		write (2, "Error\n", 6);
+		exit(1);
+	}
+	else if (a == 0)
+		exit(0);
+ }

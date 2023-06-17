@@ -6,7 +6,7 @@
 /*   By: ojebbari <ojebbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 03:18:40 by ojebbari          #+#    #+#             */
-/*   Updated: 2023/06/13 21:43:20 by ojebbari         ###   ########.fr       */
+/*   Updated: 2023/06/17 12:27:17 by ojebbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ int	it_is_sorted(t_stack *stack)
 		if (current->next == NULL)
 			break;
 		if(current->val > current->next->val)
-			return (1);
+			return (0);
 		current = current->next;
 	}
-	return (0);
+	return (1);
 }
