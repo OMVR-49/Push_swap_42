@@ -6,7 +6,7 @@
 /*   By: ojebbari <ojebbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 02:52:58 by ojebbari          #+#    #+#             */
-/*   Updated: 2023/06/17 13:01:56 by ojebbari         ###   ########.fr       */
+/*   Updated: 2023/06/18 12:41:12 by ojebbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,6 @@
 void	sort_two(t_data *data)
 {
 	swapping(data->a, 1);
-}
-t_list	*ft_min(t_stack *b)
-{
-	t_list	*tmp;
-	t_list	*min;
-
-	tmp = b->head;
-	min = tmp;
-	while (tmp)
-	{
-		if (min->val > tmp->val)
-			min = tmp;
-		tmp = tmp->next;
-	}
-	return (min);
 }
 
 void	passage_par_adresse(int *a, int *b, int *c, t_data *d)
@@ -61,8 +46,8 @@ void	sort_three(t_data *data)
 		rotate(data->a, 1);
 	else if (a > b && a > c && b > c)
 	{
-			swapping(data->a, 1);
-			rr_li_bghit(data->a, 1);
+		swapping(data->a, 1);
+		rr_li_bghit(data->a, 1);
 	}
 }
 
@@ -80,7 +65,7 @@ void	sort_four(t_data *data)
 			p_li_bghit(data->b, data->a, 2);
 			break ;
 		}
-		else if (min->index > 2)
+		else if (min->index == ft_lstlast(data->a->head)->index)
 			rr_li_bghit(data->a, 1);
 		else
 			rotate(data->a, 1);
@@ -102,7 +87,7 @@ void	sort_five(t_data *data)
 			p_li_bghit(data->b, data->a, 2);
 			break ;
 		}
-		else if(min->index == data->a->head->next->next->next->next->index)
+		else if (min->index == ft_lstlast(data->a->head)->index)
 			rr_li_bghit(data->a, 1);
 		else
 			rotate(data->a, 1);

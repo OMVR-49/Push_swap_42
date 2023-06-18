@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojebbari <ojebbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2023/06/17 06:08:36 by ojebbari         ###   ########.fr       */
+/*   Created: 2023/06/18 12:41:56 by ojebbari          #+#    #+#             */
+/*   Updated: 2023/06/18 12:41:58 by ojebbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ void	algo_from_b_to_a(t_data *data)
 {
 	t_list	*max;
 	int		size;
-	t_list	*tmp;
 
 	initialize_index(data->b->head);
 	size = ft_lstsize(data->b->head) - 1;
