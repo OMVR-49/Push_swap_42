@@ -6,15 +6,16 @@
 /*   By: ojebbari <ojebbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 00:18:46 by ojebbari          #+#    #+#             */
-/*   Updated: 2023/06/18 00:19:22 by ojebbari         ###   ########.fr       */
+/*   Updated: 2023/06/18 12:47:01 by ojebbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	free_stuf(char	**spl)
+void	free_stuf(char **spl)
 {
-	int i;
+	int	i;
+
 	i = 0;
 	while (spl[i])
 	{
@@ -55,7 +56,7 @@ int	integers(char *str)
 	}
 	while (str[i] >= 48 && str[i] <= 57)
 		i++;
-	if (str[i] == '\0')
+	if (str[i] == '\0' && str[i - 1] != '+' && str[i - 1] != '-')
 		return (0);
 	return (1);
 }
@@ -73,13 +74,11 @@ int	initialize(t_data *data)
 	return (1);
 }
 
-void	free_nodes(t_data	*data)
+void	free_nodes(t_data *data)
 {
 	while (data->a->head)
 	{
 		free(data->a->head);
 		data->a->head = data->a->head->next;
 	}
-	
 }
-

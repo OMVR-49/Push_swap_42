@@ -6,7 +6,7 @@
 /*   By: ojebbari <ojebbari@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 00:25:23 by ojebbari          #+#    #+#             */
-/*   Updated: 2023/06/18 00:41:32 by ojebbari         ###   ########.fr       */
+/*   Updated: 2023/06/18 12:46:55 by ojebbari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,15 +86,15 @@ void	index_stack(t_stack *stack)
 int	it_is_sorted(t_stack *stack)
 {
 	t_list	*current;
-	int	i;
+	int		i;
 
 	i = 0;
 	current = stack->head;
-	while(current)
+	while (current)
 	{
 		if (current->next == NULL)
-			break;
-		if(current->val > current->next->val)
+			break ;
+		if (current->val > current->next->val)
 			return (0);
 		current = current->next;
 	}
