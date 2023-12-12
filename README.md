@@ -9,7 +9,8 @@ Push Swap is a project at 42, a coding school, where students are tasked with so
 - [Introduction](#introduction)
 - [Learning Objectives](#Learning-Objectives)
 - [Usage](#usage)
-
+- [MyNotio](#mynotion)
+  
 ## Introduction
 
 The Push Swap project requires sorting a stack of integers using a limited set of operations. The goal is to implement an algorithm that sorts the stack with the minimum possible number of operations.
@@ -30,13 +31,17 @@ The Push Swap project requires sorting a stack of integers using a limited set o
 
 - **Algorithmic Complexity:** Understand the trade-offs between different sorting algorithms, considering time and space complexity.
 
-## MyNotion:
-
-[Visit My Notion](https://www.notion.so/PUSH_SWAP-7d6bb7d9575b44f1817cffad712b011e) Maybe there would be some bad words while i was explaining to my self XD btw it's written in Darija of Morocco Not in English
-
-
 ## Usage
 
 ```bash
 make
 ./push_swap [list_of_integers]
+```
+if u want to check how much instruction :
+```bash
+./push_swap [list_of_int] | wc - l // to count
+```
+## MyNotion
+
+[Visit My Notion](https://www.notion.so/PUSH_SWAP-7d6bb7d9575b44f1817cffad712b011e) Maybe there would be some bad words while i was explaining to my self XD btw it's written in Darija of Morocco Not in English
+
