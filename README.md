@@ -30,6 +30,10 @@ The Push Swap project requires sorting a stack of integers using a limited set o
 
 - **Algorithmic Complexity:** Understand the trade-offs between different sorting algorithms, considering time and space complexity.
 
+## MyNotion:
+
+[Visit My Notion](https://www.notion.so/PUSH_SWAP-7d6bb7d9575b44f1817cffad712b011e) Maybe there would be some bad words while i was explaining to my self XD btw it's written in Darija of Morocco Not in English
+
 
 ## Usage
 
