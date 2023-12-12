@@ -9,7 +9,7 @@ Push Swap is a project at 42, a coding school, where students are tasked with so
 - [Introduction](#introduction)
 - [Learning Objectives](#Learning-Objectives)
 - [Usage](#usage)
-- [MyNotio](#mynotion)
+- [MyNotion](#mynotion)
   
 ## Introduction
 
